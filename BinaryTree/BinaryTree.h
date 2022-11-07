@@ -16,77 +16,46 @@ public:
 		right = nullptr;
 	}
 
-
-	~Node();
+	void insertIntoTree(int tall);
+	
+	//~Node();
 };
 
 
+void Node::insertIntoTree(int tall) {
 
-class BinaryTree {
-public:
+	
 
-	Node* root;
-
-	BinaryTree() {
-		root = nullptr;
+	// very kul code. Does not not do duplicates :^)
+	// Thank Mathis
+	if (tall > this->data) {
+		//return;
+		// Insert node into position
+		if (this->right == nullptr) {
+			this->right = new Node(tall);
+		}
+		else {
+			this->right->insertIntoTree(tall);
+		}
+	}
+	else if (tall < this->data){
+		//insertIntoTree(tall);
+		if (this->left == nullptr) {
+			this->left = new Node(tall);
+			
+		}
+		else {
+			this->left->insertIntoTree(tall);
+		}
 	}
 	
-	void createNode(int);
-
-	void insertIntoTree(Node* node, Node* rootNode);
-
-	void displayTree();
-};
 
 
 
-void BinaryTree::createNode(int value) {
-
-	Node* newNode = new Node(value);
-
-	newNode->left = nullptr;
-	newNode->right = nullptr;
-
-	if (root == nullptr) {
-		root = newNode;
-		//return;
-	}
-
-	insertIntoTree(newNode, root);
 }
 
 
-
-void BinaryTree::insertIntoTree(Node* newNode, Node* rootNode) {
-
-	Node* tempRoot = rootNode;
-
-	// Insert node into position
-	if (tempRoot == nullptr) {
-		newNode = tempRoot;
-		return;
-	}
-
-	// No duplicates
-	if (newNode->data == tempRoot->data) {
-		// quit
-		// Delete node, free memory
-		return;
-	}
-
-	// 
-	if (newNode->data < tempRoot->data) {
-		insertIntoTree(tempRoot->left);
-		return;
-	}
-	else {
-		insertIntoTree(tempRoot->right);
-		return;
-	}
-}
-
-
-
-void BinaryTree::displayTree() {
-
-}
+//
+// void BinaryTree::displayTree() {
+//
+// }

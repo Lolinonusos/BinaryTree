@@ -30,13 +30,13 @@ int main() {
 
 	int loopSize = sizeof(fixedArray) / sizeof(fixedArray[0]);
 
-	BinaryTree* Gongaga = new BinaryTree;
+	Node* Gongaga = new Node(9);
 
 	for (int i = 0; i < loopSize; i++) {
-		Gongaga->createNode(fixedArray[i]);
+		Gongaga->insertIntoTree(fixedArray[i]);
 	}
 
-	std::cout << Gongaga->root->data;
+	//////////////std::cout << Gongaga->root->data;
 
 
 	return 0;
