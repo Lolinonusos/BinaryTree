@@ -1,6 +1,8 @@
 #include <iostream>
 
-#include "BinaryTree.h"
+#include "BinaryNode.h"
+
+
 
 
 bool isFullBinaryTree(Node* root) {
@@ -36,7 +38,17 @@ int main() {
 		Gongaga->insertIntoTree(fixedArray[i]);
 	}
 
-	//////////////std::cout << Gongaga->root->data;
+	int key;
+
+	std::cout << "Root value: " << Gongaga->getRoot();
+
+	
+	std::cout << "Insert an integer:\n";
+	std::cin >> key;
+	
+	Gongaga->searchForKey(key);
+	
+	
 
 
 	return 0;
